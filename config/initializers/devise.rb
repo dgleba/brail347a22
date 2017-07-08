@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'e1f018eae5c841b66a5b07a78c87c541aafe80ed136219d851f219167dc4759401d2723e1d4152d874cbc62ea3762072f8703e23f8e95563b635943a24728eb2'
+   config.secret_key = 'e1f018eae5c841b66a5b07a78c87c541aafe80ed136219d851f219167dc4759401d2723e1d4152d874cbc62ea3762072f8703e23f8e95563b635943a24728eb2'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -157,12 +157,15 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  config.password_length = 1..128  
+
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  # config.email_regexp = /\A[^@\s]+@[^@\s]+\z/ 
+config.email_regexp = /./ 
+
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
