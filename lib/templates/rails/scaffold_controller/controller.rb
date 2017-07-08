@@ -10,6 +10,9 @@ before_filter :authenticate_user!
   #cancancan
   load_and_authorize_resource
 
+  #cancancan
+  load_and_authorize_resource
+
 
   # cancancan..
   #load_and_authorize_resource :<%= singular_table_name %>
