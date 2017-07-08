@@ -1,0 +1,63 @@
+ ~~~~~~~~~~~~~~~ Careful, this may be missing one version, but may hint this project history. ~~~~~~~~~~~~~~~~~~
+
+commit 91200b7d7e357246c71252629dc6a21bb77d9b29
+Merge: 56261a9 83cd73f
+Author: David Gleba <dgleba@gmail.com>
+Date:   Fri Jul 7 17:39:48 2017 -0400
+
+    Merge branch 'master' of https://github.com/dgleba/bashrail
+
+commit 83cd73f294fca387691ea8736edab4474fc98a05
+Author: albe <albe@pmdsdata9.local>
+Date:   Fri Jul 7 16:41:55 2017 -0400
+
+    adjust 2017-07-07
+
+commit 56261a9221e55a5755039c260b3aad55fea8dc48
+Merge: b69a9ca cea60bf
+Author: David Gleba <dgleba@gmail.com>
+Date:   Thu Jul 6 20:48:03 2017 -0400
+
+    2017-07-06
+
+commit cea60bf784792074a1fdd500941799e0a7c1366a
+Author: dgleba <dgleba@gmail.com>
+Date:   Wed Jul 5 23:09:18 2017 -0400
+
+    adjust for osx 2017-07-05
+
+commit bf2bdf567c88c220dbf7f4ba7bbde7c7be0d1b68
+Author: dgleba <dgleba@gmail.com>
+Date:   Tue Jul 4 06:57:57 2017 -0400
+
+    ldap1 2017-07-02
+
+commit b69a9ca4ac19a375f29f7c8e4704e2270e64d67e
+Author: David Gleba <dgleba@gmail.com>
+Date:   Wed Jun 28 22:42:19 2017 -0400
+
+    add cancan 2
+
+commit b3f7586e9c20f651f7b6f3e76fd644a30ce27e77
+Author: David Gleba <dgleba@gmail.com>
+Date:   Wed Jun 28 22:42:13 2017 -0400
+
+    add cancan 1
+
+commit e39eecf8abbb3838f9b3bd9bb27d2a3d1e0c8b05
+Author: albe <albe@pmdsdata9.local>
+Date:   Wed Jun 28 22:21:15 2017 -0400
+
+    2017-06-28b
+
+commit c20a140f257cf2025b9af2f209f8843a5f027b90
+Author: albe <albe@pmdsdata9.local>
+Date:   Wed Jun 28 10:03:02 2017 -0400
+
+    deploy-2017-06-28
+
+commit 1e4a1d87a602e8b8a5023f350cd56498c42a5717
+Author: David Gleba <dgleba@gmail.com>
+Date:   Tue Jun 27 20:32:43 2017 -0400
+
+    dont copy zip file over
