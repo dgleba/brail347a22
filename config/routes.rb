@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  
 
+  resources :user2s
   resources :product_features
   resources :products
   resources :pfeatures

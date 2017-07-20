@@ -1,0 +1,135 @@
+
+<%= form_for(@user2, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @user2.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@user2.errors.count, "error") %> prohibited this user2 from being saved:</h4>
+      <ul>
+      <% @user2.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+            <%= f.label :email, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :email, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :encrypted_password, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :encrypted_password, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :reset_password_token, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :reset_password_token, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :reset_password_sent_at, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.datetime_select :reset_password_sent_at, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :remember_created_at, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.datetime_select :remember_created_at, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :sign_in_count, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.number_field :sign_in_count, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :current_sign_in_at, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.datetime_select :current_sign_in_at, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :last_sign_in_at, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.datetime_select :last_sign_in_at, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :current_sign_in_ip, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :current_sign_in_ip, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :last_sign_in_ip, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :last_sign_in_ip, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :confirmation_token, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :confirmation_token, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :confirmed_at, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.datetime_select :confirmed_at, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :confirmation_sent_at, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.datetime_select :confirmation_sent_at, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :unconfirmed_email, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :unconfirmed_email, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :failed_attempts, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.number_field :failed_attempts, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :unlock_token, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :unlock_token, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :locked_at, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.datetime_select :locked_at, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :name, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+        </div>
+  <div class="form-group">
+            <%= f.label :role_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= f.collection_select :role_id, Role.all, :id, :name,  { prompt: true }, { :class => 'dgselect2' }  %>
+        </div>
+    </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
