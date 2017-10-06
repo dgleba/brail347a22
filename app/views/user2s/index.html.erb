@@ -1,0 +1,96 @@
+
+<row class="row is-table-row" >
+
+  <div class="col-sm-1 ">
+    <%= link_to 'Create', new_user2_path , class: "btn btn-success"%>
+  </div>
+
+  <div class="col-sm-2 ">
+    <h4>Listing User2s</h4>
+  </div>
+
+  <div class="col-sm-3">
+    <%= search_form_for @q, class: 'search-form' do |f| %>
+      <div class="input-group">
+        <%= f.search_field :email_cont, class: 'form-control' %>
+        <span class="input-group-btn">
+          <button class="btn btn-primary">Search <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4 ">
+    <%= paginate @user2s %>
+  </div>
+  
+  <div class="col-sm-2 ">
+    <%= page_entries_info @user2s, :entry_name => 'item' %>
+  </div>
+  
+</row>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+            <th>Email</th>
+      <th>Encrypted password</th>
+      <th>Reset password token</th>
+      <th>Reset password sent at</th>
+      <th>Remember created at</th>
+      <th>Sign in count</th>
+      <th>Current sign in at</th>
+      <th>Last sign in at</th>
+      <th>Current sign in ip</th>
+      <th>Last sign in ip</th>
+      <th>Confirmation token</th>
+      <th>Confirmed at</th>
+      <th>Confirmation sent at</th>
+      <th>Unconfirmed email</th>
+      <th>Failed attempts</th>
+      <th>Unlock token</th>
+      <th>Locked at</th>
+      <th>Name</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user2s.each do |user2| %>
+      <tr>
+        <td>
+          <div class="btn-group">
+          <%= link_to 'Show', user2, class: "btn btn-info", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Edit', edit_user2_path(user2), class: "btn btn-primary", :style=>'color:#FFFFFF;' %>
+          <% #commentedout  = link_to 'Destroy', user2, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning", :style=>'color:#FFFFFF;' %>
+          </div>
+        </td>
+        
+        <td><%= user2.email %></td>
+        <td><%= user2.encrypted_password %></td>
+        <td><%= user2.reset_password_token %></td>
+        <td><%= user2.reset_password_sent_at %></td>
+        <td><%= user2.remember_created_at %></td>
+        <td><%= user2.sign_in_count %></td>
+        <td><%= user2.current_sign_in_at %></td>
+        <td><%= user2.last_sign_in_at %></td>
+        <td><%= user2.current_sign_in_ip %></td>
+        <td><%= user2.last_sign_in_ip %></td>
+        <td><%= user2.confirmation_token %></td>
+        <td><%= user2.confirmed_at %></td>
+        <td><%= user2.confirmation_sent_at %></td>
+        <td><%= user2.unconfirmed_email %></td>
+        <td><%= user2.failed_attempts %></td>
+        <td><%= user2.unlock_token %></td>
+        <td><%= user2.locked_at %></td>
+        <td><%= user2.name %></td>
+        <td><%= user2.role %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

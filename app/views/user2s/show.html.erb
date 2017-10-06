@@ -1,0 +1,99 @@
+
+<p>
+  <strong>Email:</strong>
+  <%= @user2.email %>
+</p>
+
+<p>
+  <strong>Encrypted password:</strong>
+  <%= @user2.encrypted_password %>
+</p>
+
+<p>
+  <strong>Reset password token:</strong>
+  <%= @user2.reset_password_token %>
+</p>
+
+<p>
+  <strong>Reset password sent at:</strong>
+  <%= @user2.reset_password_sent_at %>
+</p>
+
+<p>
+  <strong>Remember created at:</strong>
+  <%= @user2.remember_created_at %>
+</p>
+
+<p>
+  <strong>Sign in count:</strong>
+  <%= @user2.sign_in_count %>
+</p>
+
+<p>
+  <strong>Current sign in at:</strong>
+  <%= @user2.current_sign_in_at %>
+</p>
+
+<p>
+  <strong>Last sign in at:</strong>
+  <%= @user2.last_sign_in_at %>
+</p>
+
+<p>
+  <strong>Current sign in ip:</strong>
+  <%= @user2.current_sign_in_ip %>
+</p>
+
+<p>
+  <strong>Last sign in ip:</strong>
+  <%= @user2.last_sign_in_ip %>
+</p>
+
+<p>
+  <strong>Confirmation token:</strong>
+  <%= @user2.confirmation_token %>
+</p>
+
+<p>
+  <strong>Confirmed at:</strong>
+  <%= @user2.confirmed_at %>
+</p>
+
+<p>
+  <strong>Confirmation sent at:</strong>
+  <%= @user2.confirmation_sent_at %>
+</p>
+
+<p>
+  <strong>Unconfirmed email:</strong>
+  <%= @user2.unconfirmed_email %>
+</p>
+
+<p>
+  <strong>Failed attempts:</strong>
+  <%= @user2.failed_attempts %>
+</p>
+
+<p>
+  <strong>Unlock token:</strong>
+  <%= @user2.unlock_token %>
+</p>
+
+<p>
+  <strong>Locked at:</strong>
+  <%= @user2.locked_at %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user2.name %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @user2.role %>
+</p>
+
+<br>
+<%= link_to 'Edit', edit_user2_path(@user2), class: "btn btn-primary", :style=>'color:#FFFFFF;' %> &nbsp &nbsp
+<%= link_to 'Back', user2s_path, class: "btn btn-default" %>
