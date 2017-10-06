@@ -60,4 +60,9 @@ class User < ActiveRecord::Base
   end
 
   belongs_to :role
+  
+  
+  # user.rb
+  has_and_belongs_to_many :offers, join_table: :users_offers
+
 end

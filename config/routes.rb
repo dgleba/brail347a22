@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  
 
+  resources :offers
   resources :product_features
   resources :products
   resources :pfeatures

@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 50161230223301) do
+ActiveRecord::Schema.define(version: 501612302233032) do
 
   create_table "country_of_origins", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "fdate"
+    t.integer  "active_status"
+    t.integer  "sort"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "offers", force: :cascade do |t|
     t.string   "name"
     t.datetime "fdate"
     t.integer  "active_status"
@@ -89,6 +98,13 @@ ActiveRecord::Schema.define(version: 50161230223301) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+  end
+
+  create_table "users_offers", id: false, force: :cascade do |t|
+    t.integer "user_id",  null: false
+    t.integer "offer_id", null: false
+    t.index ["offer_id"], name: "index_users_offers_on_offer_id"
+    t.index ["user_id"], name: "index_users_offers_on_user_id"
   end
 
   create_table "version_associations", force: :cascade do |t|

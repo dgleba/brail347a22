@@ -1,0 +1,24 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @offer.name %>
+</p>
+
+<p>
+  <strong>Fdate:</strong>
+  <%= @offer.fdate %>
+</p>
+
+<p>
+  <strong>Active status:</strong>
+  <%= @offer.active_status %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @offer.sort %>
+</p>
+
+<br>
+<%= link_to 'Edit', edit_offer_path(@offer), class: "btn btn-primary", :style=>'color:#FFFFFF;' %> &nbsp &nbsp
+<%= link_to 'Back', offers_path, class: "btn btn-default" %>
