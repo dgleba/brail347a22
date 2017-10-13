@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 501612302233032) do
+ActiveRecord::Schema.define(version: 501612302233942) do
 
   create_table "country_of_origins", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 501612302233032) do
     t.integer  "sort"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "pfeature2s", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pfeatures", force: :cascade do |t|
@@ -59,6 +64,7 @@ ActiveRecord::Schema.define(version: 501612302233032) do
     t.integer  "sort"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.text     "description"
     t.index ["country_of_origin_id"], name: "index_products_on_country_of_origin_id"
   end
 

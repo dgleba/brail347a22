@@ -16,6 +16,7 @@ before_filter :authenticate_user!
   def index
     @q = @pfeatures.search params[:q]
     @pfeatures = @q.result.page(params[:page])
+    @pfeature1bs = Pfeature.pf1b
   end
 
   # GET /pfeatures/1
