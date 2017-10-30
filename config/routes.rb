@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
  
 
-<<<<<<< HEAD
-  resources :offers
-=======
   resources :user2s
->>>>>>> 3b82fcbad7e3944b26ff4aa7e952f83eb0363d5c
+  resources :offers
   resources :product_features
   resources :products
   resources :pfeatures
