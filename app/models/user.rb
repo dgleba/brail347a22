@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   
 
+  mount_uploader :image, ImageUploader
+  
+
+  mount_uploader :image, ImageUploader
+  
+
   has_paper_trail
   
   # Include default devise modules. Others available are:
