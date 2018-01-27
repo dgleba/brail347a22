@@ -82,3 +82,5 @@ gem "devise_ldap_authenticatable", :git => "git://github.com/cschiewek/devise_ld
 gem 'paper_trail'
 gem "figaro"
 gem 'select2-rails'
+gem 'carrierwave'
+gem 'mini_magick'
