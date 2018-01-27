@@ -69,6 +69,6 @@ before_filter :authenticate_user!
 
   # Only allow a trusted parameter "white list" through.
   def pet_params
-    params.require(:pet).permit(:name, :description, :image)
+    params.require(:pet).permit(:name, :description, { image: [] } )
   end
 end
