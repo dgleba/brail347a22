@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
  
 
-  resources :pets
+#
+  resources :pets do
+    get :autocomplete_pfeature_name, :on => :collection
+  end
+  # root "pets#index"
+
   resources :user2s
   resources :offers
   resources :product_features

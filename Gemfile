@@ -84,3 +84,7 @@ gem "figaro"
 gem 'select2-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+# https://github.com/bigtunacan/rails-jquery-autocomplete
+# https://github.com/yifeiwu/rails4-autocomplete-demo
+gem 'rails-jquery-autocomplete'
+gem 'jquery-ui-rails'

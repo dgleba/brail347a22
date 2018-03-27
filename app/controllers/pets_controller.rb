@@ -1,6 +1,9 @@
 class PetsController < ApplicationController
 before_filter :authenticate_user!
   # before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  #
+  autocomplete :pfeature, :name, :full => true
+
 
   #cancancan
   load_and_authorize_resource
