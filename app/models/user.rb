@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-
+  audited
+  
   has_paper_trail
   
   # Include default devise modules. Others available are:
