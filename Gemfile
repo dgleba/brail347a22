@@ -91,3 +91,6 @@ gem 'mini_magick'
 # https://github.com/yifeiwu/rails4-autocomplete-demo
 gem 'rails-jquery-autocomplete'
 gem 'jquery-ui-rails'
+# https://github.com/collectiveidea/audited
+# old call... gem "audited"
+gem "audited", :git => "git://github.com/collectiveidea/audited.git"
