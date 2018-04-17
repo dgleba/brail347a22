@@ -1,5 +1,5 @@
 class User2sController < ApplicationController
-before_filter :authenticate_user!
+before_action :authenticate_user!
   # before_action :set_user2, only: [:show, :edit, :update, :destroy]
 
   #cancancan

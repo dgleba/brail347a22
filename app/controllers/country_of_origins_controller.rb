@@ -1,5 +1,5 @@
 class CountryOfOriginsController < ApplicationController
-before_filter :authenticate_user!
+before_action :authenticate_user!
   # before_action :set_country_of_origin, only: [:show, :edit, :update, :destroy]
 
   #cancancan
