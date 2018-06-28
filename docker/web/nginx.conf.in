@@ -1,4 +1,4 @@
-# This is a template. Referenced variables (e.g. /var/www/brail347a22) need 
+# This is a template. Referenced variables (e.g. &RAILS_ROOT) need 
 # to be rewritten with real values in order for this file to work. 
 
 upstream rails_app {
@@ -10,12 +10,12 @@ server {
   server_name www.example.com;
 
   # define the public application root
-  root   /var/www/brail347a22/public;
+  root   &RAILS_ROOT/public;
   index  index.html;
 
   # define where Nginx should write its logs
-  access_log /var/www/brail347a22/log/nginx.access.log;
-  error_log /var/www/brail347a22/log/nginx.error.log;
+  access_log &RAILS_ROOT/log/nginx.access.log;
+  error_log &RAILS_ROOT/log/nginx.error.log;
 
   # deny requests for files that should never be accessed
   location ~ /\. {
