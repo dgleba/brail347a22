@@ -13,19 +13,19 @@
 ActiveRecord::Schema.define(version: 501612302233944) do
 
   create_table "audits", force: :cascade do |t|
-    t.integer  "auditable_id"
-    t.string   "auditable_type"
-    t.integer  "associated_id"
-    t.string   "associated_type"
-    t.integer  "user_id"
-    t.string   "user_type"
-    t.string   "username"
-    t.string   "action"
-    t.text     "audited_changes"
-    t.integer  "version",         default: 0
-    t.string   "comment"
-    t.string   "remote_address"
-    t.string   "request_uuid"
+    t.integer "auditable_id"
+    t.string "auditable_type"
+    t.integer "associated_id"
+    t.string "associated_type"
+    t.integer "user_id"
+    t.string "user_type"
+    t.string "username"
+    t.string "action"
+    t.text "audited_changes"
+    t.integer "version", default: 0
+    t.string "comment"
+    t.string "remote_address"
+    t.string "request_uuid"
     t.datetime "created_at"
     t.index ["associated_type", "associated_id"], name: "associated_index"
     t.index ["auditable_type", "auditable_id"], name: "auditable_index"
@@ -35,29 +35,29 @@ ActiveRecord::Schema.define(version: 501612302233944) do
   end
 
   create_table "country_of_origins", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "fdate"
-    t.integer  "active_status"
-    t.integer  "sort"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer "active_status"
+    t.integer "sort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "offers", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "fdate"
-    t.integer  "active_status"
-    t.integer  "sort"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer "active_status"
+    t.integer "sort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pets", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string "name"
+    t.text "description"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pfeature2s", force: :cascade do |t|
@@ -66,69 +66,69 @@ ActiveRecord::Schema.define(version: 501612302233944) do
   end
 
   create_table "pfeatures", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "fdate"
-    t.integer  "active_status"
-    t.integer  "sort"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer "active_status"
+    t.integer "sort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "product_features", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "product_id"
-    t.integer  "pfeature_id"
-    t.integer  "active_status"
-    t.integer  "sort"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string "name"
+    t.integer "product_id"
+    t.integer "pfeature_id"
+    t.integer "active_status"
+    t.integer "sort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["pfeature_id"], name: "index_product_features_on_pfeature_id"
     t.index ["product_id"], name: "index_product_features_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "country_of_origin_id"
+    t.string "name"
+    t.integer "country_of_origin_id"
     t.datetime "pdate"
-    t.integer  "active_status"
-    t.integer  "sort"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.text     "description"
+    t.integer "active_status"
+    t.integer "sort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
     t.index ["country_of_origin_id"], name: "index_products_on_country_of_origin_id"
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "active_status"
-    t.integer  "sort"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string "name"
+    t.string "description"
+    t.integer "active_status"
+    t.integer "sort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "confirmation_token"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
-    t.string   "unlock_token"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
     t.datetime "locked_at"
-    t.string   "name"
-    t.integer  "role_id",                default: 7
+    t.string "name"
+    t.integer "role_id", default: 7
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 501612302233944) do
   end
 
   create_table "users_offers", id: false, force: :cascade do |t|
-    t.integer "user_id",  null: false
+    t.integer "user_id", null: false
     t.integer "offer_id", null: false
     t.index ["offer_id"], name: "index_users_offers_on_offer_id"
     t.index ["user_id"], name: "index_users_offers_on_user_id"
@@ -145,21 +145,21 @@ ActiveRecord::Schema.define(version: 501612302233944) do
 
   create_table "version_associations", force: :cascade do |t|
     t.integer "version_id"
-    t.string  "foreign_key_name", null: false
+    t.string "foreign_key_name", null: false
     t.integer "foreign_key_id"
     t.index ["foreign_key_name", "foreign_key_id"], name: "index_version_associations_on_foreign_key"
     t.index ["version_id"], name: "index_version_associations_on_version_id"
   end
 
   create_table "versions", force: :cascade do |t|
-    t.string   "item_type",                         null: false
-    t.integer  "item_id",                           null: false
-    t.string   "event",                             null: false
-    t.string   "whodunnit"
-    t.text     "object",         limit: 1073741823
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
     t.datetime "created_at"
-    t.text     "object_changes", limit: 1073741823
-    t.integer  "transaction_id"
+    t.text "object_changes", limit: 1073741823
+    t.integer "transaction_id"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
     t.index ["transaction_id"], name: "index_versions_on_transaction_id"
   end
