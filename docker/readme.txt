@@ -1,6 +1,6 @@
 
 IMPORTANT
-      Remember to edit app.Dockerfile 
+      Remember to edit both web.Dockerfile and app.Dockerfile 
       
       # Set an environment variable where the Rails app is installed to inside of Docker image:
       # ENV RAILS_ROOT /var/www/app_name
