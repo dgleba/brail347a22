@@ -14,8 +14,8 @@ server {
   index  index.html;
 
   # define where Nginx should write its logs
-  access_log &RAILS_ROOT/log/nginx.access.log;
-  error_log &RAILS_ROOT/log/nginx.error.log;
+  access_log APP___NAME__nginx.access.log;
+  error_log APP___NAME__nginx.error.log;
 
   # deny requests for files that should never be accessed
   location ~ /\. {

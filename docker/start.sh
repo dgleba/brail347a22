@@ -45,7 +45,8 @@ prjname="brail347a22"
 dpath="\/var\/www\/$prjname"
 dkpath='docker/web'
 
-sed  -e "s/&RAILS_ROOT/${dpath}/g" $dkpath/nginx.conf.in > $dkpath/nginx.conf 
+sed  -e "s/&RAILS_ROOT/${dpath}/g" $dkpath/nginx.conf.in > $dkpath/nginx.conf2 
+sed  -e "s/APP___NAME/${prjname}/g" $dkpath/nginx.conf2 > $dkpath/nginx.conf 
 
 echo $prjname
 echo $dpath
