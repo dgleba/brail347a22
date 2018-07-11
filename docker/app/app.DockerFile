@@ -26,7 +26,7 @@ RUN gem install pg
 RUN bundle install --jobs 20 --retry 5 
 
 # Adding project files
-COPY . .
+COPY  . .
 RUN bundle exec rake assets:precompile
 
 EXPOSE 3000

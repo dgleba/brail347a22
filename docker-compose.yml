@@ -7,6 +7,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/app/app.DockerFile
+    volumes:
+      - .:/var/www/brail347a22
     depends_on:
       - db
   db:
@@ -20,4 +22,4 @@ services:
     depends_on:
       - app
     ports:
-      - 80:80
+      - 6031:80
