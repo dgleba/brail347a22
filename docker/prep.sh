@@ -4,28 +4,20 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#  Purpose:  deploy the app to production
+#  Purpose:  create nginx.conf
 
-
-Read and edit these files. they may need editing.
-  edit prjname dpath and vport..
-    ..
-  
-  
-Note: This is specfic to my server setup..  see: https://github.com/dgleba/vamp206a  
-  
   
 usage:   
 
 
-( the rails project folder )  example: run this from /srv/web/rail263 
+( from the rails project folder )  example: run this from /srv/web/rail263 
 
 
 *******   Don't run with sudo..  *******
 
 
  cd /srv/web/railci350
- deploy/deploy.sh
+ docker/prep.sh
 
 end -- usage. 
 
@@ -43,10 +35,19 @@ date ; set +vx  ; set -vx ; # echo off, then echo on
 
 prjname="brail347a22"
 dpath="\/var\/www\/$prjname"
-dkpath='docker/web'
+dkpath='docker'
+dkappath='docker/app'
 
-sed  -e "s/&RAILS_ROOT/${dpath}/g" $dkpath/nginx.conf.in > $dkpath/nginx.conf2 
-sed  -e "s/APP___NAME/${prjname}/g" $dkpath/nginx.conf2 > $dkpath/nginx.conf 
+sed  -e "s/&RAILS_ROOT/${dpath}/g" $dkpath/nginx.conf.in > /tmp/nginx.conf2 
+sed  -e "s/APP___NAME/${prjname}/g" /tmp/nginx.conf2 > $dkpath/nginx.conf 
+
+
+sed  -e "s/APP___FOLDER/${dpath}/g" $dkpath/web.DockerFile.in > $dkpath/web.DockerFile
+
+sed  -e "s/APP___FOLDER/${dpath}/g" $dkpath/app.DockerFile.in > $dkpath/app.DockerFile
+
+
+
 
 echo $prjname
 echo $dpath
