@@ -10,6 +10,6 @@ Also see https://github.com/dgleba/bashrail/tree/master/docsbr
 
 ### Run with Docker:
 
-`docs\brail347a22-2018-06-27a-docker-satendra02-dkr380.txt`
+`docker\instructions.txt.md`
 
 For newest notes it may help to see: `C:\n\Dropbox\csd\0-csd\dkr\satendra02-dkr380\brail347a22-2018-06-27a-docker-satendra02-dkr380.txt`

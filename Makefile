@@ -3,12 +3,32 @@
 # run scripts from project folder like this --  sc/cl
 
 
-te:
-  # test accessing exported env variable.
-	echo $${PWD##*/}
-	#export PWDbasename=$${PWD##*/} ; echo $$PWDbasename
+  
+devup:  
+	docker-compose  -f docker-compose.yml up 
+   
+devrup:  
+	docker-compose  -f docker-compose.yml up --build  --force-recreate  
 
- 
+prupr:  
+	docker-compose  -f docker-compose.prod.yml up --build  --force-recreate  
+   
+prup:  
+	docker-compose  -f docker-compose.prod.yml up 
+  
+  
+# having trouble setting env variable, but do I need it?  
+perm2:  
+	docker-compose run  app \
+	bash -c "chmod -R g+rws  /var/www"
+   
+   
+mgr21:
+	docker-compose run app bin/rails active_storage:install:migrations ; \
+	docker-compose run app rake db:migrate   
+
+
+  
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,6 +36,12 @@ te:
 #  other/`less common` stuff...
 
  
+
+te:
+  # test accessing exported env variable.
+	echo $${PWD##*/}
+	#export PWDbasename=$${PWD##*/} ; echo $$PWDbasename
+
 
 
 myrup:  
@@ -111,11 +137,6 @@ perm:
 	docker-compose run djangodev sh sc/fixpermsh
 
     
-# having trouble setting env variable, but do I need it?  
-#
-perm2:  
-	docker-compose run djangodev \
-	bash -c "export fold=/myproject; chmod -R g+rws,o-w  $${fold}"
 
   
 recreatep:  

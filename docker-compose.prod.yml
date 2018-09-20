@@ -7,28 +7,19 @@
 
 version: '3.6'
 
-volumes:
-  postgres_data: {}
+# volumes:
+  # postgres_data: {}
 
 services:
 
   app:
     build:
       context: .
-      dockerfile: ./docker/app.dev.Dockerfile
-      args:
-        - RACK_ENV=development
-        - RAKE_ENV=development
-        - RAILS_ENV=development
+      dockerfile: ./docker/app.DockerFile
     volumes:
       - .:/var/www/brail347a22
     # depends_on:
       # - db
-    environment:
-      - RACK_ENV=development
-      - RAKE_ENV=development
-      - RAILS_ENV=development
-
       
   # db:
     # image: postgres
@@ -42,6 +33,6 @@ services:
     depends_on:
       - app
     ports:
-      - 6032:80
+      - 6031:80
       
       

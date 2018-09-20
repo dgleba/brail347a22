@@ -33,8 +33,10 @@ date ; set +vx  ; set -vx ; # echo off, then echo on
 
 # settings...
 
-prjname="brail347a22"
-dpath="\/var\/www\/$prjname"
+prjname="x"
+prjname="${PWD##*/}"
+
+dpath="${PWD}"
 dkpath='docker'
 dkappath='docker/app'
 

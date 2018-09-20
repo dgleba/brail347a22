@@ -1,5 +1,6 @@
 # Base image:
-FROM nginx
+FROM nginx:1.14
+
 # Install dependencies
 RUN apt-get update -qq && apt-get -y install apache2-utils
 
@@ -18,7 +19,7 @@ RUN mkdir log
 COPY public public/
 
 # Copy Nginx config template
-COPY docker/web/nginx.conf /tmp/docker.nginx
+COPY docker/nginx.conf /tmp/docker.nginx
 
 # substitute variable references in the Nginx config template for real values from the environment
 # put the final config in its place

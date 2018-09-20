@@ -16,6 +16,9 @@ bin/rails db:migrate RAILS_ENV=development
 bin/rails s -b 0.0.0.0 -p 3004 -e development
 
 
+bundle exec rails server -b 0.0.0.0
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -42,8 +45,8 @@ bin/rails s -b 0.0.0.0 -p 3004 -e production
 
 # run it in docker..
 
-chmod +x docker/start.sh
-docker/start.sh
+chmod +x docker/prep.sh
+docker/prep.sh
 
 docker-compose build
 
@@ -59,28 +62,11 @@ rails r passw.rb -e production
 docker-compose up
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-older notes..
+more notes..
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -125,6 +111,59 @@ app_1  | * Min threads: 5, max threads: 5
 app_1  | * Environment: production
 brail347a22_web_1 exited with code 1
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2018-09-17[Sep-Mon]12-09PM
+
+        docker-compose  -f docker-compose.dev.yml up --build  --force-recreate
+WARNING: Found orphan containers (brail347a22_db_1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.
+
+
+__________________
+
+
+https://www.codementor.io/victor_hazbun/docker-for-rails-development-juklgqo36
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2018-09-17[Sep-Mon]14-10PM
+
+ [RailsAdmin] Could not load model JwtWrapper, assuming model is non existing. (uninitialized constant JwtWrapper
+app_1  | Did you mean?  JWTWrapper)
+
+
+
+ RailsAdmin Could not load model JwtWrapper, assuming model is non existing. uninitialized constant JwtWrapper Did you mean?  JWTWrapper
+ RailsAdmin   uninitialized constant JwtWrapper Did you mean?  JWTWrapper
+
+
+ 
+https://gist.github.com/goncalvesjoao/5e5131954a12065ac4c601ecf1b827fe
+ 
+ 
+__________________
+
+
+albe@pmdsdata4:/srv/dkr/brail347a22$ grep -ri jwtwrap
+
+config/initializers/core/extensions/devise/strategies/json_web_token.rb:        JWTWrapper.decode(token) rescue nil
+
+app/controllers/users/sessions_controller.rb:    token = JWTWrapper.encode({ user_id: current_user.id })
+
+app/helpers/jwt_wrapper.rb:module JWTWrapper
+
+app/views/home/index.html.erb:  curl -i -X  GET --header 'Authorization: Bearer <%= JWTWrapper.encode({ user_id: current_user.id }) %>' 'http://localhost:3001/products.json'
+
+albe@pmdsdata4:/srv/dkr/brail347a22$
+ 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
