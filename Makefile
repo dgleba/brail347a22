@@ -16,6 +16,8 @@ prupr:
 prup:  
 	docker-compose  -f docker-compose.prod.yml up 
   
+prep:  
+	docker/prep.sh 
   
 # having trouble setting env variable, but do I need it?  
 perm2:  

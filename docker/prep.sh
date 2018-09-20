@@ -36,21 +36,24 @@ date ; set +vx  ; set -vx ; # echo off, then echo on
 prjname="x"
 prjname="${PWD##*/}"
 
-dpath="${PWD}"
+# no.. drawpath="${PWD}"
+drawpath="/var/www/$prjname"
+dpath=$(echo "${drawpath}"|sed 's=/=\\/=g')
 dkpath='docker'
-dkappath='docker/app'
+# dkappath='docker/app'
 
 sed  -e "s/&RAILS_ROOT/${dpath}/g" $dkpath/nginx.conf.in > /tmp/nginx.conf2 
 sed  -e "s/APP___NAME/${prjname}/g" /tmp/nginx.conf2 > $dkpath/nginx.conf 
 
 
-sed  -e "s/APP___FOLDER/${dpath}/g" $dkpath/web.DockerFile.in > $dkpath/web.DockerFile
+sed  -e "s/APP___FOLDER/${dpath}/g" $dkpath/web.Dockerfile.in > $dkpath/web.Dockerfile
 
-sed  -e "s/APP___FOLDER/${dpath}/g" $dkpath/app.DockerFile.in > $dkpath/app.DockerFile
+sed  -e "s/APP___FOLDER/${dpath}/g" $dkpath/app.Dockerfile.in > $dkpath/app.Dockerfile
 
 
 
 
 echo $prjname
+echo $drawpath
 echo $dpath
 
