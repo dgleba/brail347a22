@@ -1,37 +1,23 @@
 FROM ruby:2.3.1
 
-# Install dependencies
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs mc
 
-RUN  apt-get install -y  mc 
+#RUN  apt-get install -y  mc 
 RUN  echo "alias lsl='ls -la'" >>   ~/.bashrc ; chmod ugo+rw  ~/.bashrc
 RUN echo "alias psg='ps -ef|grep '" >>   ~/.bashrc 
 
-# Set an environment variable where the Rails app is installed to inside of Docker image:
-# ENV RAILS_ROOT /var/www/app_name
-ENV RAILS_ROOT /var/www/brail347a22
+ENV BUNDLE_PATH /bundle
 
-RUN mkdir -p $RAILS_ROOT
+ENV RAILS_ROOT /myapp
 
-# Set working directory, where the commands will be ran:
-WORKDIR $RAILS_ROOT
+RUN mkdir /myapp
+WORKDIR /myapp
 
-# Setting env up
-#ENV RAILS_ENV='production'
-#ENV RAKE_ENV='production'
+COPY Gemfile /myapp/Gemfile
+COPY Gemfile.lock /myapp/Gemfile.lock
 
-# Adding gems
-COPY Gemfile Gemfile
-COPY Gemfile.lock Gemfile.lock
-RUN gem install puma
-RUN gem install pg
+ RUN bundle install --jobs 40 --retry 5
 
-# RUN bundle install --jobs 20 --retry 5 --without development test
-RUN bundle install --jobs 20 --retry 5 
-
-# Adding project files
-COPY  . .
-# RUN bundle exec rake assets:precompile
+COPY . /myapp
 
 EXPOSE 3000
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

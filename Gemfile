@@ -89,7 +89,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 # https://github.com/bigtunacan/rails-jquery-autocomplete
 # https://github.com/yifeiwu/rails4-autocomplete-demo
-gem 'rails-jquery-autocomplete'
+gem 'rails-jquery-autocomplete'  # couldn't find file 'jquery-ui/autocomplete' with type 'application/javascript' , https://stackoverflow.com/questions/45545224/ruby-on-railscouldnt-find-file-jquery-ui-autocomplete-with-type-applicatio
 gem 'jquery-ui-rails'
 # https://github.com/collectiveidea/audited
 # old call... gem "audited"

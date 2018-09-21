@@ -5,7 +5,7 @@ RUN apt-get update -qq && apt-get -y install apache2-utils
 
 # establish where Nginx should look for files
 #ENV RAILS_ROOT /var/www/brail
-ENV RAILS_ROOT /var/www/brail347a22   # <<<  edit app_name
+ENV RAILS_ROOT /myapp   # <<< always use myapp
 
       
 # Set our working directory inside the image

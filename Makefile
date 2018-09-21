@@ -16,20 +16,21 @@ prupr:
 prup:  
 	docker-compose  -f docker-compose.prod.yml up 
   
-prep:  
-	docker/prep.sh 
+
   
 # having trouble setting env variable, but do I need it?  
 perm2:  
-	docker-compose run  app \
-	bash -c "chmod -R g+rws  /var/www"
+	docker-compose run  railsdev \
+	bash -c "chmod -R u+rws,g+rws,o+rs  /myapp "
    
    
 mgr21:
 	docker-compose run app bin/rails active_storage:install:migrations ; \
 	docker-compose run app rake db:migrate   
 
-
+asc:
+	docker-compose run rails bundle exec rake assets:precompile ; \
+	
   
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -153,7 +154,8 @@ up:
 # dev recreate build force
 	docker-compose  up 
 
- 
+prep:  
+	docker/prep.sh  
   
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

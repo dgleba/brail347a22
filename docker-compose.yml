@@ -12,7 +12,7 @@ version: '3.6'
 
 services:
 
-  app:
+  railsdev:
     build:
       context: .
       dockerfile: ./docker/app.Dockerfile
@@ -21,15 +21,19 @@ services:
         - RAKE_ENV=development
         - RAILS_ENV=development
     volumes:
-      - .:/var/www/brail347a22
+      - .:/myapp
+      - bundle_cache:/bundle
     # depends_on:
       # - db
     environment:
       - RACK_ENV=development
       - RAKE_ENV=development
       - RAILS_ENV=development
+      - RAILS_LOG_TO_STDOUT=1
     ports:
-      - 6035:80
+      - 6035:3000
+    command: bash -c  "bundle check || bundle install --jobs 40 --retry 5 \
+                        && bundle exec puma -C config/puma.rb -p 3000  "
 
       
   # db:
@@ -37,13 +41,15 @@ services:
     # volumes:
       # - postgres_data:/var/lib/postgresql/data
       
-  web:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-    depends_on:
-      - app
-    ports:
-      - 6032:80
+  # web:
+    # build:
+      # context: .
+      # dockerfile: ./docker/web.Dockerfile
+    # depends_on:
+      # - app
+    # ports:
+      # - 6032:80
       
-      
+volumes:
+  bundle_cache:
+              
