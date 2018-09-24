@@ -12,7 +12,7 @@ version: '3.6'
 
 services:
 
-  railsdev:
+  dev:
     build:
       context: .
       dockerfile: ./docker/app.Dockerfile

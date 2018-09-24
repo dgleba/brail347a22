@@ -22,7 +22,7 @@ prd:
   
 # having trouble setting env variable, but do I need it?  
 perm2:  
-	docker-compose run  railsdev \
+	docker-compose run  dev \
 	bash -c "chmod -R u+rws,g+rws,o+rs  /myapp "
    
    
