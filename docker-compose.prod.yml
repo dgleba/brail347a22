@@ -1,9 +1,9 @@
 
 # ref..
+# https://docs.docker.com/compose/rails/
 # https://gist.github.com/satendra02/1b335b06bfc5921df486f26bd98e0e89
 # https://www.reddit.com/r/docker/comments/7zjbe4/docker_rails_puma_nginx_postgres/
 # https://itnext.io/docker-rails-puma-nginx-postgres-999cd8866b18
-# https://docs.docker.com/compose/rails/
 
 version: '3.6'
 
@@ -25,7 +25,7 @@ services:
       - RACK_ENV=production
       - RAKE_ENV=production
       - RAILS_ENV=production
-      - RAILS_LOG_TO_STDOUT=1
+      # - RAILS_LOG_TO_STDOUT=1
     command: bash -c  "bundle check || bundle install --jobs 40 --retry 5 \
                         && bundle exec puma -C config/puma.rb -p 3000  "
       

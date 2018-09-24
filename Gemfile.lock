@@ -299,7 +299,7 @@ DEPENDENCIES
   pg
   populator
   puma (~> 3.0)
-  rails (~> 5.2)
+  rails
   rails-jquery-autocomplete
   rails_admin (~> 1.4.1)
   rails_admin_material

@@ -16,6 +16,8 @@ prupr:
 prup:  
 	docker-compose  -f docker-compose.prod.yml up 
   
+prd:  
+	docker-compose  -f docker-compose.prod.yml up -d 
 
   
 # having trouble setting env variable, but do I need it?  
@@ -26,10 +28,10 @@ perm2:
    
 mgr21:
 	docker-compose run app bin/rails active_storage:install:migrations ; \
-	docker-compose run app rake db:migrate   
+     	docker-compose run app rake db:migrate   
 
 asc:
-	docker-compose run rails bundle exec rake assets:precompile ; \
+	docker-compose -f docker-compose.prod.yml run app bundle exec rake assets:precompile 
 	
   
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
