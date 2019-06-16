@@ -1,23 +1,23 @@
-FROM ruby:2.3.1
 
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs mc
+# Dockerfile.dev
+# FROM ruby:2.4.5 as builder
+FROM ruby:2.6 as builder
 
-#RUN  apt-get install -y  mc 
-RUN  echo "alias lsl='ls -la'" >>   ~/.bashrc ; chmod ugo+rw  ~/.bashrc
-RUN echo "alias psg='ps -ef|grep '" >>   ~/.bashrc 
+# ENV BUNDLE_PATH /bundle
+# ENV RAILS_ROOT /myapp
 
-ENV BUNDLE_PATH /bundle
+# nothanks RUN bundle config --global frozen 1
 
-ENV RAILS_ROOT /myapp
+# unneeded.. COPY Gemfile Gemfile.lock ./
 
-RUN mkdir /myapp
-WORKDIR /myapp
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs mc \
+  && echo "alias lsl='ls -la'" >>   ~/.bashrc ; chmod ugo+rw  ~/.bashrc \
+  && echo "alias psg='ps -ef|grep '" >>   ~/.bashrc  \
+  && mkdir -p /app
 
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
-
-RUN bundle install --jobs 40 --retry 5
-
-COPY . /myapp
+WORKDIR /app
 
 EXPOSE 3000
+
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+
