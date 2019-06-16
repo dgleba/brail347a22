@@ -19,6 +19,10 @@ https://anonoz.github.io/tech/2019/03/10/rails-docker-compose-yml.html
   docker images | grep prod467_ | awk '{print $1 ":" $2}' | xargs docker rmi 
   docker images | grep rail467_ | awk '{print $1 ":" $2}' | xargs docker rmi 
 	
+targ=brail347a22_webp
+targ=brail347a22_web
+  docker rm -f $(docker ps -a |    grep $targ         | awk '{print $1}')
+  docker images | grep $targ | awk '{print $1 ":" $2}' | xargs docker rmi -f
 	
 	
 docker-compose build
@@ -59,12 +63,18 @@ docker-compose run --rm web bundle exec rails db:setup
 
 
 
+ docker-compose run --rm web    bash -c "rm -f tmp/pids/server.pid "
+
+
+ docker-compose run --rm web    bash -c "rm -f tmp/pids/server.pid "
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 docker-compose  -f docker-compose.prod.yml build
 
- docker-compose  -f docker-compose.prod.yml up
+docker-compose  -f docker-compose.prod.yml up
  
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
