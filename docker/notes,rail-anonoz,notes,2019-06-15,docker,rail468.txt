@@ -3,9 +3,26 @@ status. works.
 
 2019-06-16
 
-https://anonoz.github.io/tech/2019/03/10/rails-docker-compose-yml.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Production..
+
+docker-compose  -f docker-compose.prod.yml build
+
+docker-compose  -f docker-compose.prod.yml up
+ 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Development..
+
+From: https://anonoz.github.io/tech/2019/03/10/rails-docker-compose-yml.html
 
 
+_____________
+
+
+Remove / erase..
 
 
   careful..   docker volume rm -f $( docker volume ls |    grep bundle_cache       | awk '{print $2}' )
@@ -18,13 +35,23 @@ https://anonoz.github.io/tech/2019/03/10/rails-docker-compose-yml.html
   docker images | grep prod466_ | awk '{print $1 ":" $2}' | xargs docker rmi 
   docker images | grep prod467_ | awk '{print $1 ":" $2}' | xargs docker rmi 
   docker images | grep rail467_ | awk '{print $1 ":" $2}' | xargs docker rmi 
-	
-targ=brail347a22_webp
+
+
+careful..  docker-compose -f docker-compose.prod.yml down -v
+
+
 targ=brail347a22_web
+targ=brail347a22_webp
   docker rm -f $(docker ps -a |    grep $targ         | awk '{print $1}')
   docker images | grep $targ | awk '{print $1 ":" $2}' | xargs docker rmi -f
 	
 	
+
+_____________
+
+
+Dev..
+
 docker-compose build
 
 
@@ -69,15 +96,9 @@ docker-compose run --rm web bundle exec rails db:setup
  docker-compose run --rm web    bash -c "rm -f tmp/pids/server.pid "
 
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-docker-compose  -f docker-compose.prod.yml build
 
-docker-compose  -f docker-compose.prod.yml up
- 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 prod 467 error
 
@@ -139,3 +160,6 @@ worked. in suresh.
 docker-compose run --rm web  rails new . --force --no-deps
 
 docker-compose run --rm web bundle install -j8
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
