@@ -11,6 +11,17 @@ docker-compose  -f docker-compose.prod.yml build
 
 docker-compose  -f docker-compose.prod.yml up
  
+docker-compose  -f docker-compose.prod.yml down
+ 
+ docker-compose -f docker-compose.prod.yml  run --rm webp    /bin/bash
+  
+
+mkdir -p shared/log
+mkdir -p shared/pids
+mkdir -p shared/sockets
+touch shared/log/.keep
+touch shared/pids/.keep
+touch shared/sockets/.keep
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -28,9 +39,9 @@ Remove / erase..
   careful..   docker volume rm -f $( docker volume ls |    grep bundle_cache       | awk '{print $2}' )
   
   dkd -v
-  docker rm -f $(docker ps -a |    grep rail467c_web         | awk '{print $1}')
-  docker rm -f $(docker ps -a |    grep rail467_dev         | awk '{print $1}')
-  docker rm -f $(docker ps -a |    grep suspic       | awk '{print $1}')
+  docker rm -f $(docker ps -a |    grep brail347a22        | awk '{print $1}')
+  # docker rm -f $(docker ps -a |    grep rail467_dev         | awk '{print $1}')
+  # docker rm -f $(docker ps -a |    grep suspic       | awk '{print $1}')
 	make clean
   docker images | grep prod466_ | awk '{print $1 ":" $2}' | xargs docker rmi 
   docker images | grep prod467_ | awk '{print $1 ":" $2}' | xargs docker rmi 
@@ -41,7 +52,7 @@ careful..  docker-compose -f docker-compose.prod.yml down -v
 
 
 targ=brail347a22_web
-targ=brail347a22_webp
+targ=brail347a22
   docker rm -f $(docker ps -a |    grep $targ         | awk '{print $1}')
   docker images | grep $targ | awk '{print $1 ":" $2}' | xargs docker rmi -f
 	
@@ -95,6 +106,8 @@ docker-compose run --rm web bundle exec rails db:setup
 
  docker-compose run --rm web    bash -c "rm -f tmp/pids/server.pid "
 
+ docker-compose run --rm webp    /bin/bash
+ 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

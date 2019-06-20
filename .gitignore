@@ -27,7 +27,10 @@ app/models/user.rb
 .env
 .powenv
 docprivate/
+
 /shared/
+!**.keep
+
 /deployed/
 /offline/
 db/yamldb/
