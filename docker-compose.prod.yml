@@ -27,6 +27,7 @@ services:
     command: bash -c  " bundle exec puma -C config/puma-prod.rb -p 3010  "
     expose:
       - 3010
+    restart: always
 
   # db:
   # image: postgres
