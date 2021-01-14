@@ -77,7 +77,7 @@ gem 'bootstrap-kaminari-views'
 gem "devise"
 gem 'jwt'
 gem "cancancan"
-gem 'rails_admin', '~> 1.4.1'
+gem 'rails_admin', '~> 2.0.2'
 # 
 gem 'rails_admin_material'
 gem 'rails_admin_mydash'
